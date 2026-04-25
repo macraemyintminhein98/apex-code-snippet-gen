@@ -3,53 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apex Code Snippet Generator</title>
+    <title>ScribeGen</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-    </style>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-lg">
-        <h1 class="text-3xl font-bold mb-4 text-center">Code Snippet AI</h1>
-        <p class="mb-6 text-gray-600 text-center">Generate code instantly with natural language.</p>
-        <form id="snippetForm" class="space-y-4">
-            <div>
-                <label for="prompt" class="block text-sm font-medium text-gray-700">What code do you need?</label>
-                <textarea id="prompt" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="e.g., 'Python function to reverse a string', 'React button component'"></textarea>
+<body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen font-sans">
+    <header class="bg-gray-800 p-4 text-center">
+        <h1 class="text-4xl font-bold text-indigo-400">ScribeGen</h1>
+        <p class="text-lg text-gray-400">Your AI-powered assistant for instant code snippets.</p>
+    </header>
+
+    <main class="flex-grow container mx-auto p-6 md:p-8 space-y-8">
+        <section class="text-center space-y-4">
+            <p class="text-xl">Generate common code snippets in seconds.</p>
+            <p class="text-md text-gray-400">Perfect for students, junior devs, and quick boilerplate.</p>
+        </section>
+
+        <section class="bg-gray-800 p-6 rounded-lg shadow-lg max-w-2xl mx-auto space-y-4">
+            <h2 class="text-2xl font-semibold text-indigo-300">Get Started</h2>
+            <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
+                <select class="w-full md:w-1/2 p-3 rounded bg-gray-700 border border-gray-600 text-white" id="language">
+                    <option value="">Select Language</option>
+                    <option value="javascript">JavaScript/React</option>
+                    <option value="python">Python/Flask</option>
+                </select>
+                <input type="text" placeholder="e.g., component with state, file I/O" class="w-full md:w-1/2 p-3 rounded bg-gray-700 border border-gray-600 text-white" id="keywords">
             </div>
-            <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+            <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded transition duration-200" onclick="alert('Feature coming soon! :)')">
                 Generate Snippet
             </button>
-        </form>
-        <div id="result" class="mt-6 p-4 bg-gray-50 border border-gray-200 rounded-md hidden">
-            <h2 class="text-lg font-semibold mb-2">Generated Code:</h2>
-            <pre class="whitespace-pre-wrap text-sm text-gray-800" id="codeOutput"></pre>
-        </div>
-        <p class="mt-6 text-sm text-center text-gray-500">Powered by Apex.</p>
-    </div>
+        </section>
 
-    <script>
-        const form = document.getElementById('snippetForm');
-        const promptInput = document.getElementById('prompt');
-        const resultDiv = document.getElementById('result');
-        const codeOutput = document.getElementById('codeOutput');
+        <section class="bg-gray-800 p-6 rounded-lg shadow-lg max-w-2xl mx-auto space-y-4">
+            <h2 class="text-2xl font-semibold text-indigo-300">Unlock Unlimited Generation</h2>
+            <p class="text-lg">Get unlimited snippet generation, forever.</p>
+            <p class="text-3xl font-bold text-green-400">$9.99 <span class="text-lg text-gray-400 font-normal">One-time purchase</span></p>
+            <button class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded transition duration-200" onclick="alert('Secure checkout via Stripe (coming soon)!')">
+                Buy Now
+            </button>
+        </section>
+    </main>
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const promptText = promptInput.value;
-            // In a real app, this would call your backend API.
-            // For this demo, we'll simulate a response.
-            resultDiv.classList.add('hidden');
-            codeOutput.textContent = 'Generating...';
-
-            await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate API call
-
-            const simulatedCode = `// Example generated code for: "${promptText}"\n\nfunction exampleSnippet() {\n  console.log('Hello from generated code!');\n  // Your AI-generated code would go here\n}\n`;
-            
-            codeOutput.textContent = simulatedCode;
-            resultDiv.classList.remove('hidden');
-        });
-    </script>
+    <footer class="bg-gray-800 p-4 text-center text-gray-400">
+        <p>&copy; 2023 ScribeGen. All rights reserved.</p>
+    </footer>
 </body>
 </html>
